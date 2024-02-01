@@ -1,0 +1,10 @@
+{
+  "category": "theme",
+  "name": "Zaiste Theme",
+  "apiVersion": "0.13.4",
+  "version": "0.0.2",
+  "description": "Zaiste theme for OrgNote!",
+  "keywords": ["ui", "theme"],
+  "sourceUrl": "https://github.com/artawower/orgnote-zaiste",
+  "sourceType": "git"
+}
