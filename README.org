@@ -1,0 +1,83 @@
+:PROPERTIES:
+:ID: orgnote
+:END:
+
+#+html: <div align='center'>
+#+html: <img src='./images/image.png' width='256px' height='256px'>
+#+html: </div>
+#+html: &nbsp;
+
+#+TITLE: ✨ Org Note. Extensions collection
+
+#+html: <div align='center'>
+#+html: <span class='badge-buymeacoffee'>
+#+html: <a href='https://www.paypal.me/darkawower' title='Paypal' target='_blank'><img src='https://img.shields.io/badge/paypal-donate-blue.svg' alt='Buy Me A Coffee donate button' /></a>
+#+html: </span>
+#+html: <span class='badge-patreon'>
+#+html: <a href='https://patreon.com/artawower' target='_blank' title='Donate to this project using Patreon'><img src='https://img.shields.io/badge/patreon-donate-orange.svg' alt='Patreon donate button' /></a>
+#+html: </span>
+#+html: <a href='https://wakatime.com/badge/github/Artawower/orgnote'><img src='https://wakatime.com/badge/github/Artawower/orgnote.svg' alt='wakatime'></a>
+#+html: </div>
+#+html: <div align='center'>
+#+html: <a href="https://twitter.com/org_note" target="_blank"><img src="https://img.shields.io/twitter/follow/org_note" alt="Twitter link" /></a>
+#+html: <a href="https://emacs.ch/@orgnote" target="_blank"><img src="https://img.shields.io/mastodon/follow/111357296398326501?domain=https%3A%2F%2Femacs.ch" alt="Mastodon link" /></a>
+#+html: <a href="https://discord.com/invite/SFpUb2vSDm" target="_blank"><img src="https://img.shields.io/discord/1161751315324604417" alt="Discord"></a>
+#+html: </div>
+#+html: <div align='center'>
+#+html: <a href="https://play.google.com/store/apps/details?id=org.note.app" target="_blank">
+#+html: <img src="./images/google-play.svg" width="140px" height="auto">
+#+html: </a>
+#+html: </div>
+
+
+* Introduction
+This is the official repository for containing extensions for OrgNote application. You are free to add a new extension by creating PR.
+
+*WARNING*
+/*OrgNote is currently in the beta stage. API may be changed in the future*/
+
+* Connected links
+- [[https://org-note.com/][Official website]]
+- [[https://github.com/Artawower/orgnote-client][Org Note client]]
+- [[https://github.com/Artawower/org-mode-ast][Typescript abstract syntax tree for org mode.]] 
+- [[https://discord.gg/SFpUb2vSDm][Discord server]]
+- [[https://github.com/Artawower/orgnote-api][NPM package for creating your own extension]]
+
+
+* Contribution guide
+- Fork repository.
+- Create new =.json= file in the =recipes= folder with next structure (typescript type):
+  This structure could be updated, see [[https://github.com/Artawower/orgnote-api][NPM package for OrgNote API]] for more information.
+
+#+BEGIN_SRC typescript
+export interface ExtensionManifest {
+  /* Should be unique in the extension repo */
+  name: string;
+  version: string;
+  category: 'theme' | 'extension' | 'language pack' | 'other';
+  /* OrgNote api semver, 0.13.4 for example */
+  apiVersion?: string;
+  author?: string;
+  description?: string;
+  keywords?: string[];
+  // Repository url
+  sourceType: 'git' | 'file';
+  /* Default value is README.org */
+  readmeFilePath?: string;
+  /* WIP */
+  permissions?: Array<'files' | 'personal info' | '*' | 'third party'>;
+  reloadRequired?: boolean;
+  sourceUrl?: string;
+  sponsor?: string[];
+  development?: boolean;
+  icon?: string;
+}
+#+END_SRC
+
+See more example in the [[https://github.com/artawower/orgnote-extensions/tree/master/recipes]] directory.
+
+
+** How to update version of the application.
+#+BEGIN_SRC bash
+./update-version.sh
+#+END_SRC
