@@ -1,0 +1,10 @@
+{
+  "name": "Colorful Headlines",
+  "description": "Colorful headlines for your notes",
+  "version": "0.0.1",
+  "sourceType": "git",
+  "sourceUrl": "https://github.com/artawower/orgnote-colorful-headlines",
+  "author": "artawower",
+  "category": "other",
+  "keywords": ["color", "headline", "styles"]
+}
